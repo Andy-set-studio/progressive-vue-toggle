@@ -24,7 +24,23 @@ export default {
   methods: {
     toggle() {
       this.toggleStatus = this.toggleStatus === 'collapsed' ? 'open' : 'collapsed';
+      this.handleFocusability();
+    },
+    handleFocusability() {
+      this.$slots.panel.forEach(vNode => {
+        vNode.elm
+          .querySelectorAll(
+            'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]'
+          )
+          .forEach(item => {
+            let tabIndex = this.toggleStatus === 'collapsed' ? '-1' : '0';
+            item.setAttribute('tab-index', tabIndex);
+          });
+      });
     }
+  },
+  mounted() {
+    this.handleFocusability();
   }
 };
 </script>
