@@ -1,0 +1,83 @@
+body {
+  padding: 2rem;
+  color: #333333;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 75ch;
+}
+
+h1 + p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+a {
+  color: #b71540;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: #cccccc;
+  margin: 3rem 0;
+}
+
+button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-family: inherit;
+  border-radius: 10px;
+  cursor: pointer;
+  color: currentColor;
+  transition: all 200ms ease;
+}
+
+button:hover,
+button:focus {
+  background: #666666;
+  color: #f3f3f3;
+  outline: none;
+}
+
+button:hover + svg,
+button:focus + svg {
+  color: #f3f3f3;
+}
+
+svg {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  margin-top: -0.5rem;
+  fill: currentColor;
+  transition: transform 200ms linear;
+}
+
+button[aria-expanded='true'] + svg {
+  transform: rotate(180deg);
+}
+
+.trigger {
+  position: relative;
+}
+
+.panel {
+  overflow: hidden;
+  transition: all 200ms ease;
+  max-height: 0px;
+  padding: 0 2rem;
+}
+
+.panel.open {
+  max-height: 35rem;
+}
